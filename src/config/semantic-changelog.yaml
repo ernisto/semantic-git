@@ -1,0 +1,33 @@
+v: 1
+
+title: Change log v${version} - ${os.date("%m/%d")}
+body:
+  - title: "✨ Features"
+    list:
+      from: ${semantic_commits.feat}
+      map: "- ${index}. ${value.title} (#${value.id:sub(1, 7)})"
+
+  - title: "⌛ Optimizations"
+    list:
+      from: ${semantic_commits.perf}
+      map: "- ${index}. ${value.title} (#${value.id:sub(1, 7)})"
+
+  - title: "🔧 Fixes"
+    list:
+      from: ${semantic_commits.fix}
+      map: "- ${index}. ${value.title} (#${value.id:sub(1, 7)})"
+
+  - title: "⚠️ Deprecations"
+    list:
+      from: ${semantic_commits.depre}
+      map: "- ${index}. ${value.title} (#${value.id:sub(1, 7)})"
+
+  - title: "❌ Breaking Changes"
+    list:
+      from: ${semantic_commits.breaking}
+      map: "- ${index}. ${value.title} (#${value.id:sub(1, 7)})"
+
+  - title: "🤼 Contribuitors"
+    list:
+      from: ${authors}
+      map: "- @${value}"

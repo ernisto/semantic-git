@@ -1,0 +1,39 @@
+v: 1
+
+major:
+  # overwrite: current
+  commit_kinds: [breaking]
+minor:
+  # overwrite: 1
+  commit_kinds: [feat, depre]
+patch:
+  # overwrite: null
+  commit_kinds: [fix, perf, type]
+
+build_metadata:
+  default: [commit, "${commit}"]
+  # force: [date, "${date(%m/%d)}"]
+
+pre_release:
+  - master:
+    fields: [alpha]
+
+  - dev_stage:
+    match_branch: ^staged$
+    fields: [rc]
+
+  - dev_all_fix:
+    match_branch: ^beta$
+    fields: [beta]
+
+  - dev_fix:
+    match_branch: ^fix/(%S+)
+    fields: [rc, "${captures[1]}"]
+
+  - dev_all_feats:
+    match_branch: ^alpha$
+    fields: [alpha]
+
+  - dev_feat:
+    match_branch: ^feat/(%S+)
+    fields: [beta, "${captures[1]}"]

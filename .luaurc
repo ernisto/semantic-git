@@ -1,0 +1,12 @@
+{
+    "languageMode": "strict",
+    "globals": ["warn"],
+    "aliases": {
+        "lune": "~/.lune/.typedefs/0.8.9/",
+        "pkg": "./lune_packages",
+        "config": "./src/config",
+        "utils": "./src/utils",
+        "cli": "./src/cli",
+        "lib": "./src/lib"
+    }
+}

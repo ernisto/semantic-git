@@ -1,0 +1,75 @@
+v: 1
+commit:
+  # match: "^(%w+)(%b()?)(!?): (.-)\n(.+)"
+  match: "^(.+?)(?:\\((.+?)\\))?(!)?: (.+)(?:\n([\\s\\S]+))?"
+  captures:
+    kind: 1
+    scope: 2
+    breaking: 3
+    title: 4
+    body: 5
+
+kinds:  # a commit can have 1 or more kinds, each kind storing their own captures as extra data
+  breaking:
+    match_breaking: "!"
+    match_body: "\nBREAKING CHANGE: ([^\n]+)"
+
+  # reader side
+  refact:
+    eq_kind: refact
+    desc: Refactor code without changing its behavior
+
+  style:
+    eq_kind: style
+    desc: Changes that do not affect the meaning of the code (white_space, formatting, missing semi_colons, etc)
+
+  chore:
+    eq_kind: chore
+    desc: Changes to the build process or auxiliary tools and libraries such as documentation generation
+
+  doc:
+    eq_kind: doc
+    desc: Documentation only changes
+
+  # dev side
+  build:
+    eq_kind: build
+    desc: Changes that affect the build system or external dependencies (example scopes gulp, broccoli, npm)
+
+  type:
+    eq_kind: type
+    desc: Adding missing type fields, or fixing some type annotation
+
+  test:
+    eq_kind: test
+    desc: Adding missing tests or correcting existing tests
+
+  ci:
+    eq_kind: ci
+    desc: Changes to our CI configuration files and scripts (example scopes Travis, Circle, BrowserStack, SauceLabs)
+
+  # user side
+  depre:
+    eq_kind: depre
+    desc: Deprecating code that needs to be cleaned up in the future
+
+  feat:
+    eq_kind: feat
+    desc: A new feature
+
+  perf:
+    eq_kind: perf
+    desc: A code change that improves performance
+
+  fix:
+    eq_kind: fix
+    desc: A bug fix
+
+  # git side
+  revert:
+    match_lower_title: ^revert
+    desc: Revert to a commit
+
+  merge:
+    match_lower_title: ^merge
+    desc: Merge a branch

@@ -1,0 +1,52 @@
+{
+    "explorer.fileNesting.patterns": {
+        "*.js": "${capture}.*.js, ${capture}.*.ts, ${capture}.js, ${capture}.js.map",
+        "*.ts": "${capture}.*.js, ${capture}.*.ts, ${capture}.js",
+        "*.luau": "${capture}.*.lua, ${capture}.*.luau",
+        "*.lua": "${capture}.*.lua, ${capture}.*.luau",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "pesde.toml": ".luaurc, *.toml, *.json, *.yml, *.yaml, *.lock, *.js",
+        "README.md": "*.md",
+        "init.cmd": "*.cmd",
+        "init.sh": "*.sh",
+        ".gitattributes": ".gitignore, *.md, LICENSE"
+    },
+
+    // files
+    "files.eol": "\n",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        ".vscode": true,
+        ".github": true,
+        ".pesde": true,
+        "pesde.lock": true,
+        "package-lock.json": true,
+        "sourcemap.json": true,
+        "roblox_server_packages": true,
+        "roblox_packages": true,
+        "lune_packages": true,
+        "luau_packages": true,
+        "node_modules": true,
+        "dist": true
+    },
+
+    // luau lsp
+    "luau-lsp.completion.imports.requireStyle": "alwaysRelative",
+    "luau-lsp.bytecode.vectorCtor": "create",
+    "luau-lsp.bytecode.vectorType": "vector",
+    "luau-lsp.bytecode.vectorLib": "vector",
+    "luau-lsp.platform.type": "standard",
+    "luau-lsp.ignoreGlobs": [
+        "**/node_modules/**",
+        "node_modules/**",
+        "**/.pesde/**",
+        "dist/**"
+    ],
+}
