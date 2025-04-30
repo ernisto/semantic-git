@@ -60,7 +60,7 @@ local function try_parse(commit: git.commit): semantic_commit?
 		local kind = kind_by_field[field][value]
 		if kind then semantic_commit.kinds[kind.name] = table.freeze {} end
 	end
-	assert(next(semantic_commit.kinds), `this commit dont match with any kind`)
+	assert(next(semantic_commit.kinds), `this commit dont match with any kind '{commit.message.title}'`)
 
 	cache[commit] = semantic_commit
 	table.freeze(semantic_commit.kinds)
