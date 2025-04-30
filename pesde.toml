@@ -27,4 +27,4 @@ stylua = { name = "pesde/stylua", version = "^2.0.2", target = "lune" }
 default = "https://github.com/pesde-pkg/index"
 
 [dependencies]
-git = { name = "ernisto/git", version = "^0.1.0-alpha.5" }
+git = { name = "ernisto/git", version = "^0.1.0-alpha.8" }
