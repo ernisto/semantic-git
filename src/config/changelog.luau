@@ -3,7 +3,7 @@ local serde = require('@lune/serde')
 local fs = require('@lune/fs')
 
 -- defs
-local current_path = string.match(debug.info(1, 's'), '^%[string "(.+)"%]') or nil :: never
+local current_path = string.match(debug.info(1, 's'), '^%[string "(.+)"%]')
 local default_content = fs.readFile(`{current_path}/../semantic-changelog.yaml`)
 
 -- functions

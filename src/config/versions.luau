@@ -25,7 +25,7 @@ export type field = {
 }
 
 -- defs
-local current_path = string.match(debug.info(1, 's'), '^%[string "(.+)"%]') or nil :: never
+local current_path = string.match(debug.info(1, 's'), '^%[string "(.+)"%]')
 local default_content = fs.readFile(`{current_path}/../semantic-version.yaml`)
 
 -- functions
